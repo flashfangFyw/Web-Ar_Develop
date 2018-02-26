@@ -411,7 +411,8 @@ namespace ffDevelopmentSpace
                 string game = Const.AppName.ToLower();
                 if (Application.isMobilePlatform)
                 {
-                    return Application.persistentDataPath + "/" + game + "/";
+                    //return Application.persistentDataPath + "/" + game + "/";
+                    return Application.persistentDataPath + "/" + Const.AssetDirname + "/";
                 }
                 return Application.dataPath + "/" + Const.AssetDirname + "/";
                 //return "C:/" + Const.AssetDirname + "/";
