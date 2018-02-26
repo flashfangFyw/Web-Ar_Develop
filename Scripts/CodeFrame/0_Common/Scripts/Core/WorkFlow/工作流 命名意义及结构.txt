@@ -1,0 +1,2 @@
+Controller 文件都是挂靠在GameObject下的脚本控制器
+	GameController 是游戏控制器挂靠在对象 GameController下
