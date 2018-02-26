@@ -37,7 +37,7 @@ public class ResourceManagerController:SingletonMB<ResourceManagerController>
     {
         bundles = new Dictionary<string, AssetBundle>();
 		allAssets = new Dictionary<string, Dictionary<string, UObject>> ();
-            string filePath = Util.DataPath + "streamingassets";
+            string filePath = Util.DataPath + "StreamingAssets";
 		AssetBundle assetbundle = CreateAssetBundle (filePath);
         manifest = assetbundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
     }
