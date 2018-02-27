@@ -151,16 +151,16 @@ namespace ffDevelopmentSpace
                 else
                 {
                     string tipsStr = "没有找到对应的配置 filename：" + filename + "    id:" + id;
-                    Singleton<ModuleEventDispatcher>.GetInstance().dispatchPromptWnd(DialogType.Cancel, tipsStr);
-                    Singleton<ModuleEventDispatcher>.GetInstance().dispatchDebugLogEvent(tipsStr);
+                    //Singleton<ModuleEventDispatcher>.GetInstance().dispatchPromptWnd(DialogType.Cancel, tipsStr);
+                    Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent(tipsStr);
                     Debuger.Log("没有找到对应的配置 filename：" + filename + "    id:" + id);
                 }
             }
             else
             {
                 string tipsStr = "没有找到对应的配置 filename：" + filename + "    id:" + id;
-                Singleton<ModuleEventDispatcher>.GetInstance().dispatchPromptWnd(DialogType.Cancel, tipsStr);
-                Singleton<ModuleEventDispatcher>.GetInstance().dispatchDebugLogEvent(tipsStr);
+                //Singleton<ModuleEventDispatcher>.GetInstance().dispatchPromptWnd(DialogType.Cancel, tipsStr);
+                Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent(tipsStr);
                 Debuger.Log("没有找到对应的配置文件 filename:" + filename);
             }
             return null;

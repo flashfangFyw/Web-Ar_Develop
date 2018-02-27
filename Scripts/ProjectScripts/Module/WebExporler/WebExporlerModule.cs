@@ -126,7 +126,7 @@ using ffDevelopmentSpace;
                     Debug.Log("Your final score is: " + score);
 
                     // Restart the game after 3 second
-                    Invoke("Restart", 3.0f);
+                    Invoke("UniWebViewRestart", 3.0f);
                 }
                 if (message.Path.Equals("close"))
                 {
@@ -136,7 +136,7 @@ using ffDevelopmentSpace;
             };
         }
     }
-    void Restart()
+    void UniWebViewRestart()
     {
         if (uniWebView != null)
         {

@@ -96,7 +96,7 @@ namespace ffDevelopmentSpace
             if (handleList.ContainsKey(msgId))
             {
                 Debuger.LogError("重复添加协议处理：" + msgId);
-                Singleton<ModuleEventDispatcher>.GetInstance().dispatchDebugLogEvent("重复添加协议处理：" + msgId);
+                Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent("重复添加协议处理：" + msgId);
                 return;
             }
             handleList[msgId] = handle;
@@ -137,7 +137,7 @@ namespace ffDevelopmentSpace
             }
             else
             {
-                Singleton<ModuleEventDispatcher>.GetInstance().dispatchDebugLogEvent("协议未处理：" + key.ToString("X"));
+                Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent("协议未处理：" + key.ToString("X"));
             }
         }
 
@@ -205,7 +205,7 @@ namespace ffDevelopmentSpace
             sendMsg((ushort)msgId, stream);
             string str = request.ToString() + checkObj(request);
             str = Util.getHtmlStr(str, "#00ff00");
-            Singleton<ModuleEventDispatcher>.GetInstance().dispatchDebugLogEvent(str);
+            Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent(str);
         }
 
         string checkObj(object a)
