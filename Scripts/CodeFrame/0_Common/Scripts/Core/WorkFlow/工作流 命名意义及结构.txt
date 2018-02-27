@@ -1,2 +1,10 @@
 Controller 文件都是挂靠在GameObject下的脚本控制器
 	GameController 是游戏控制器挂靠在对象 GameController下
+
+
+Manager 文件都是功能管理器，是不挂靠对象的单例 ，每一个Manger都有一个GetInstance()方法来获取单例
+	GameManager是游戏管理器，他处理游戏业务，加载基础功能管理器（）
+
+
+
+	pk.eyJ1IjoiZmxhc2hmYW5nIiwiYSI6ImNqY3pteGI4YjJvb2Qydm81dTZoZzlzamMifQ.-lpc-uzkMNf_JPqewuZiPg

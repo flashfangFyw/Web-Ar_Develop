@@ -26,14 +26,14 @@ public class MainSceneModule : BaseModule
 	protected override void InitView()
 	{
 		mainUiTrans = rectTrans.Find("MainUiPanel").gameObject.GetComponent<RectTransform>();
-        topUiTrans = rectTrans.Find("TopPanel").gameObject.GetComponent<RectTransform>();
+        //topUiTrans = rectTrans.Find("TopPanel").gameObject.GetComponent<RectTransform>();
 		
 		AddClick("MainUiPanel/bg/Btn1");
 		AddClick("MainUiPanel/bg/Btn2");
 		AddClick("MainUiPanel/bg/Btn3");
 
-		AddClick("TopPanel/bg/Btn4");
-		AddClick("TopPanel/bg/Btn5");
+		//AddClick("TopPanel/bg/Btn4");
+		//AddClick("TopPanel/bg/Btn5");
 	}
 
 	protected override void InitEffect()
@@ -41,8 +41,8 @@ public class MainSceneModule : BaseModule
 		UITweener twPos = CreateTweener(mainUiTrans, TweenType.BOTTOM_IN);
 		SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
-		twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
-        SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+		//twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
+  //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
 		//twPos = CreateTweener(leftUiTrans, TweenType.LEFT_IN);
   //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
@@ -66,7 +66,6 @@ public class MainSceneModule : BaseModule
 
 	override protected void OnClick(GameObject obj)
 	{
-		GameObject btn;
 		switch (obj.name)
 		{
 			case "Btn1":
@@ -112,8 +111,8 @@ public class MainSceneModule : BaseModule
 		twPos.onEnd = ExitHandle;
         SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
-		twPos = CreateTweener(topUiTrans, TweenType.TOP_OUT);
-        SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+		//twPos = CreateTweener(topUiTrans, TweenType.TOP_OUT);
+  //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
 	}
 	

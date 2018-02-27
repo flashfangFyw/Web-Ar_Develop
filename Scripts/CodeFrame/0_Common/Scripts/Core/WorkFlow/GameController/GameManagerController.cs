@@ -87,6 +87,7 @@ namespace ffDevelopmentSpace
             //    ModuleManager.GetInstance().CreateModule("debug", ModuleManager.GetInstance().getOtherPanel());
             //}
             ModuleManager.GetInstance().CreateModule("MainScene");
+            ModuleManager.GetInstance().CreateModule("WebExporler");
             //timerManager = TimerManager.GetInstance();
         }
         #endregion
