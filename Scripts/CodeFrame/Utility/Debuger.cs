@@ -7,12 +7,17 @@ namespace ffDevelopmentSpace
 
         private static bool IsDebug = true;
 
-        public static bool IsDebuger { get { return IsDebug; } }
+        public static bool IsDebuger
+        { get { return IsDebug; }
+          set { IsDebug = value; } }
 
         public static void Log(object message)
         {
             if (IsDebug)
+            {
                 Debug.Log(message);
+                Singleton<ModuleEventDispatcher>.GetInstance().DispatchDebugLogEvent(message.ToString());
+            }
         }
 
         public static void LogWarning(object message)

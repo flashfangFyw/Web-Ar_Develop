@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ffDevelopmentSpace;
+using UnityEngine.SceneManagement;
 
 public class MainSceneModule : BaseModule
 {
@@ -27,8 +28,8 @@ public class MainSceneModule : BaseModule
 	{
 		mainUiTrans = rectTrans.Find("MainUiPanel").gameObject.GetComponent<RectTransform>();
         //topUiTrans = rectTrans.Find("TopPanel").gameObject.GetComponent<RectTransform>();
-		
-		AddClick("MainUiPanel/bg/Btn1");
+
+        AddClick("MainUiPanel/bg/Btn1");
 		AddClick("MainUiPanel/bg/Btn2");
 		AddClick("MainUiPanel/bg/Btn3");
 
@@ -41,12 +42,12 @@ public class MainSceneModule : BaseModule
 		UITweener twPos = CreateTweener(mainUiTrans, TweenType.BOTTOM_IN);
 		SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
-		//twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
-  //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+        //twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
+        //SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
-		//twPos = CreateTweener(leftUiTrans, TweenType.LEFT_IN);
-  //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
-	}
+        //twPos = CreateTweener(leftUiTrans, TweenType.LEFT_IN);
+        //      SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+    }
 
 	protected override void InitEvent()
 	{
@@ -73,7 +74,8 @@ public class MainSceneModule : BaseModule
                 //	ModuleManager.GetInstance().CloseAllModuleWithOutLogic();
                 //	Singleton<ModuleEventDispatcher>.GetInstance().dispatchLoadingSceneStart("copy");
                 //}
-                Debug.Log("click Btn1");
+                Debuger.Log("click Btn1");
+                //SceneManager.LoadScene("Ar_MapBox");
                 break;
 
 			case "Btn2":
@@ -81,7 +83,10 @@ public class MainSceneModule : BaseModule
                 //	ModuleManager.GetInstance().CloseAllModule();
                 //	ModuleManager.GetInstance().CreateModule("SwitchMode");
                 //}
-                Debug.Log("click Btn2");
+                Debuger.Log("click Btn1");
+                ModuleManager.GetInstance().CloseModule(StringConst.Module_WebExporler);
+                ModuleManager.GetInstance().CreateModule(StringConst.Module_Projective);
+                SceneManager.LoadScene(StringConst.Scene1);
                 break;
 
 			case "Btn3":

@@ -82,12 +82,9 @@ namespace ffDevelopmentSpace
                 GameObject obj = GameObject.Find("ScreenUICanvas");
                 if (obj) obj.AddComponent<UITweenManagerController>();
             }
-            //if(OpenDebugPanel)
-            //{
-            //    ModuleManager.GetInstance().CreateModule("debug", ModuleManager.GetInstance().getOtherPanel());
-            //}
+            Debuger.IsDebuger = OpenDebugPanel;
             ModuleManager.GetInstance().CreateModule("MainScene");
-            ModuleManager.GetInstance().CreateModule("WebExporler");
+            ModuleManager.GetInstance().CreateModule(StringConst.Module_WebExporler);
             //timerManager = TimerManager.GetInstance();
         }
         #endregion

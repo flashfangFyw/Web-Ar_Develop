@@ -28,20 +28,21 @@ using ffDevelopmentSpace;
     protected override void InitView()
     {
         webExporlerTrans = rectTrans.Find("WebExporler").gameObject.GetComponent<RectTransform>();
-        if (webExporlerTrans) uniWebView= webExporlerTrans.gameObject.AddComponent<UniWebView>();
+      
         topUiTrans = rectTrans.Find("TopPanel").gameObject.GetComponent<RectTransform>();
         AddClick("TopPanel/bg/Btn4");
         AddClick("TopPanel/bg/Btn5");
-        InitUniWebView();
+      
     }
 
     protected override void InitEffect()
     {
         //UITweener twPos = CreateTweener(mainUiTrans, TweenType.BOTTOM_IN);
         //SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
-
-        //twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
-        //SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+        if (webExporlerTrans) uniWebView = webExporlerTrans.gameObject.AddComponent<UniWebView>();
+        InitUniWebView();
+        UITweener twPos = CreateTweener(topUiTrans, TweenType.TOP_IN);
+        SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
     }
 
     protected override void InitEvent()
@@ -75,12 +76,14 @@ using ffDevelopmentSpace;
 
     public override void OnExit()
     {
+        Destroy(uniWebView);
+        uniWebView = null;
         //UITweener twPos = CreateTweener(mainUiTrans, TweenType.BOTTOM_OUT);
         //twPos.onEnd = ExitHandle;
         //SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
-        //twPos = CreateTweener(topUiTrans, TweenType.TOP_OUT);
-        //SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
+        UITweener twPos = CreateTweener(topUiTrans, TweenType.TOP_OUT);
+        SingletonMB<UITweenManagerController>.GetInstance().AddTweener(twPos);
 
     }
     #endregion
