@@ -95,6 +95,52 @@ using ffDevelopmentSpace;
             uniWebView.ReferenceRectTransform = webExporlerTrans;
             uniWebView.Load("http://172.29.106.254:3000/");
             uniWebView.Show();
+            uniWebView.OnPageFinished += (view, statusCode, url) =>
+            {
+                // Page load finished
+            };
+            uniWebView.OnShouldClose += (view) =>
+            {
+                uniWebView = null;
+                return true;
+            };
+            uniWebView.OnPageFinished += (view, statusCode, url) =>
+            {
+                uniWebView.EvaluateJavaScript("testJs();", (payload) =>
+                {
+                    if (payload.resultCode.Equals("0"))
+                    {
+                        Debug.Log("Game Started!");
+                    }
+                    else
+                    {
+                        Debug.Log("Something goes wrong: " + payload.data);
+                    }
+                });
+            };
+            uniWebView.OnMessageReceived += (view, message) =>
+            {
+                if (message.Path.Equals("game-over"))
+                {
+                    var score = message.Args["score"];
+                    Debug.Log("Your final score is: " + score);
+
+                    // Restart the game after 3 second
+                    Invoke("Restart", 3.0f);
+                }
+                if (message.Path.Equals("close"))
+                {
+                    Destroy(uniWebView);
+                    uniWebView = null;
+                }
+            };
+        }
+    }
+    void Restart()
+    {
+        if (uniWebView != null)
+        {
+            uniWebView.Reload();
         }
     }
     #endregion
