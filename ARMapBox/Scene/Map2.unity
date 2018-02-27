@@ -1290,6 +1290,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1286139108}
+  - component: {fileID: 1286139109}
   - component: {fileID: 1286139110}
   m_Layer: 0
   m_Name: HitCubeParent
@@ -1313,6 +1314,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1286139109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286139107}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a9e657041661945918d5416e380978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ifTest: 1
+  offsetFactor: 3
+  m_HitTransform: {fileID: 1286139108}
+  poinPerfabs:
+  - {fileID: 1306553354024346, guid: fd39e492cfca9fe43a311a7829c453ad, type: 2}
+  - {fileID: 1306553354024346, guid: 590f11fdc33fe3d49b272b85ac1aa0b4, type: 2}
+  - {fileID: 1306553354024346, guid: 9651978d1fdf71047bc3120246e655a2, type: 2}
+  - {fileID: 1306553354024346, guid: d2e7fc8de764389479d1418f3bb653d4, type: 2}
+  showPerfabs: {fileID: 1557999961}
+  FramePerfabs: {fileID: 804544024}
+  moveFlagX: 1
+  moveFlagY: 1
+  scaleFlag: 1
+  map: {fileID: 0}
+  upHeight: 1
+  scaleAD: 1000
 --- !u!114 &1286139110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0a376b490221240bb041ea893367b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTest: 0
+  ifTest: 1
   ifMove: 1
   ifScale: 1
   ifDirections: 0
@@ -1417,7 +1445,7 @@ Prefab:
         type: 2}
       propertyPath: tht
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1286139109}
     - target: {fileID: 114766040167052840, guid: 00538dbc53988e34d9f2aaf6d4ab47ff,
         type: 2}
       propertyPath: _latitudeLongitudeString
